@@ -1,0 +1,107 @@
+//Responsive tabs
+.tab-wrap {
+  background-color: $color-initial;
+  border: 1px solid $color-tertiary;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 40px 0;
+  max-width: 100%;
+  position: relative;
+
+}
+
+.tab {
+  display: none !important;
+
+  &:checked {
+    &:nth-of-type(1) ~ .tab__content:nth-of-type(1),
+    &:nth-of-type(2) ~ .tab__content:nth-of-type(2),
+    &:nth-of-type(3) ~ .tab__content:nth-of-type(3),
+    &:nth-of-type(4) ~ .tab__content:nth-of-type(4) {
+      opacity: 1;
+      position: relative;
+      top: 0;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      -webkit-transition: .5s opacity ease-in, .2s transform ease;
+      -webkit-transition: .5s opacity ease-in, .2s -webkit-transform ease;
+      transition: .5s opacity ease-in, .2s -webkit-transform ease;
+      transition: .5s opacity ease-in, .2s transform ease;
+      -webkit-transition: .5s opacity ease-in, .2s transform ease, .2s -webkit-transform ease;
+      transition: .5s opacity ease-in, .2s transform ease, .2s -webkit-transform ease;
+      z-index: 1;
+    }
+
+    + label {
+      background-color: $color-initial;
+      color: $color-quinary;
+      cursor: default;
+
+      &:hover {
+        background-color: $color-initial;
+        -webkit-box-shadow: 0 -1px 0 $color-initial inset;
+        box-shadow: 0 -1px 0 $color-initial inset;
+      }
+    }
+  }
+
+  + label {
+    background-color: $color-tertiary;
+    -webkit-box-flex: 3;
+    cursor: pointer;
+    display: block;
+    flex-grow: 3;
+    -ms-flex-positive: 3;
+    height: 50px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition: .3s background-color ease, .3s -webkit-box-shadow ease;
+    -webkit-transition: .3s background-color ease, .3s box-shadow ease;
+    transition: .3s background-color ease, .3s -webkit-box-shadow ease;
+    -webkit-transition: .3s background-color ease, .3s box-shadow ease, .3s -webkit-box-shadow ease;
+    transition: .3s background-color ease, .3s box-shadow ease, .3s -webkit-box-shadow ease;
+    transition: .3s background-color ease, .3s box-shadow ease;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    width: 100%;
+
+    &:hover {
+      background-color: tint($color-tertiary, 35%);
+    }
+  }
+}
+
+.tab__content {
+  background-color: transparent;
+  left: 0;
+  opacity: 0;
+  padding: 10px 25px;
+  position: absolute;
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
+  width: 100%;
+  z-index: -1;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $color-primary;
+  }
+}
+
+@media (min-width: $larger-than-mobile) {
+  .tab + label {
+    width: auto;
+    font-size: 1.125rem;
+  }
+}

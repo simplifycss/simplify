@@ -1,0 +1,103 @@
+// Responsive tables
+tbody,
+tr,
+th,
+td {
+  display: block;
+}
+
+table {
+  border: 0;
+  width: 100%;
+}
+
+tbody {
+  display: table-row-group;
+}
+
+th {
+  color: $color-primary;
+}
+
+td {
+  border-bottom: 1px solid $color-tertiary;
+  font-size: .8em;
+  text-align: right;
+}
+
+th[data-title]:before,
+td[data-title]:before {
+  color: $color-primary;
+  content: attr(data-title);
+  float: left;
+}
+
+thead {
+  display: none;
+  visibility: hidden;
+}
+
+th,
+td {
+  &empty {
+    display: none;
+  }
+}
+
+tr {
+  border-bottom: 3px solid $color-tertiary;
+  margin-bottom: .625em;
+}
+
+td:last-child {
+  border-bottom: 0;
+}
+
+@media (min-width: $larger-than-mobile) {
+  table {
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+
+  th,
+  td {
+    padding: .625em;
+    text-align: center;
+  }
+
+  th {
+    color: $color-primary;
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  thead {
+    display: table-header-group;
+    visibility: visible;
+    width: 100%;
+  }
+
+  tr {
+    border-bottom: 1px solid $color-tertiary;
+    display: table-row;
+    padding: .35em;
+
+    th,
+    td {
+      display: table-cell;
+    }
+  }
+
+  th[data-title]:before,
+  td[data-title]:before {
+    content: '';
+    display: none;
+    text-align: center;
+  }
+}
